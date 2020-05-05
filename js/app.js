@@ -19,9 +19,9 @@
 */
 
 const ul = document.querySelector('ul');
-const section = document.getElementsByTagName('section');
-const list_item= document.getElementsByTagName("li")
-const nav__menu = document.getElementsByTagName('nav');
+const sections = document.getElementsByTagName('section');
+const links= document.getElementsByTagName("li");
+const nav__menu = document.querySelectorAll('nav');
 
 
 /**
@@ -49,8 +49,8 @@ function isInViewPort(elem) {
 
 // build the nav
 function navBuild() {
-	for (var i=0; i<section.length; i++){
-	    var id = section[i].id;
+	for (var i=0; i<sections.length; i++){
+	    var id = sections[i].id;
 	    var list = document.createElement('li');
 	    var anchor = document.createElement('a');
 	    ul.appendChild(list);
@@ -67,18 +67,20 @@ function navBuild() {
 
 
 function makeSectionActive() {
+
 	for (i of section){
-	
+		var id = i.id;
 		if (isInViewPort(i) ==true){
 			i.classList.add('your-active-class');
-			console.log("section is active");
-			}
+			document.getElementById(id).classList.add('active');
+			console.log("link and section are active");}
 		else{
 			i.classList.remove('your-active-class');
-			console.log("section not active");
+			document.getElementById(id).classList.remove('active');
+			console.log("link and section not active");
 			}
-		}
 	}
+}
 
 
 		
@@ -93,9 +95,32 @@ function makeSectionActive() {
 // Scroll to anchor ID using scrollTO event
 
 function scrollToSection() {
+	for (section of sections){
+		var position = section.getBoundingClientRect();
+		var sectionId = section.getAttribute('id')
+		console.log(sectionId);
+		for (link of links){
+			var linkId = link.getAttribute('id');
+			link.addEventListener("click", function(e){
+			console.log("clicked");
+			e.preventDefault();
+			if (sectionId == linkId){
+				window.scrollTo(position);
+		}
+	});
+	};
+};
+}
+
 
 	
+	function getPosition(){
+    for (section of sections){
+        var position = section.getBoundingClientRect();
+        var sectionId = section.getAttribute('id');
+        console.log("working");
 
+    }}
 
 
 
@@ -117,9 +142,14 @@ menu = navBuild()
 // Scroll to section on link click
 
 
-window.addEventListener("click", scrollToSection());
+window.addEventListener("click", function(){
+	scrollToSection()
+});
 
 // Set sections as active
-window.addEventListener("scroll", makeActive());
+window.addEventListener("scroll", function(){
+	makeSectionActive();
+	console.log("scrolling");
+});
 
 
