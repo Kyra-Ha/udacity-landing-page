@@ -20,7 +20,7 @@
 
 const ul = document.querySelector('ul');
 const section = document.getElementsByTagName('section');
-const menuLink= document.getElementsByClassName("menu__link")
+const list_item= document.getElementsByTagName("li")
 const nav__menu = document.getElementsByTagName('nav');
 
 
@@ -29,17 +29,15 @@ const nav__menu = document.getElementsByTagName('nav');
  * Start Helper Functions
  * 
 */
-function isInView(elem) {
-	var view = elem.getBoundingClientRect();
-    return (
-        view.top >= 0 &&
-        view.left >= 0 &&
-        view.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        view.right <= (window.innerWidth || document.documentElement.clientWidth)
+function isInViewPort(elem) {
+	var bounding = elem.getBoundingClientRect();
+	return (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 };
-
-
 
 
 
@@ -67,23 +65,25 @@ function navBuild() {
 
 // Add class 'active' to section when near top of viewport
 
-function makeActive() {
-	for (var i of section){
-		var id = i.id
-		if (isInView()==true) {
+
+function makeSectionActive() {
+	for (i of section){
+	
+		if (isInViewPort(i) ==true){
 			i.classList.add('your-active-class');
-			menulink[id].add('active');
-		}
+			console.log("section is active");
+			}
 		else{
 			i.classList.remove('your-active-class');
-			menuLink[id].remove('active');
+			console.log("section not active");
+			}
 		}
 	}
-}
 
 
-
+		
 	
+
 
 
 
@@ -94,7 +94,10 @@ function makeActive() {
 
 function scrollToSection() {
 
-			
+	
+
+
+
 
 
 
@@ -107,7 +110,8 @@ function scrollToSection() {
 
 // Build menu 
 
-menu = navBuild(nav__menu)
+menu = navBuild()
+
 
 
 // Scroll to section on link click
@@ -116,6 +120,6 @@ menu = navBuild(nav__menu)
 window.addEventListener("click", scrollToSection());
 
 // Set sections as active
-window.addEventListener('scroll', makeActive());
+window.addEventListener("scroll", makeActive());
 
 
