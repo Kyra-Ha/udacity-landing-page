@@ -20,8 +20,8 @@
 
 const ul = document.querySelector('ul');
 const sections = document.getElementsByTagName('section');
-const links= document.getElementsByTagName("li");
 const nav__menu = document.querySelectorAll('nav');
+
 
 
 /**
@@ -95,6 +95,7 @@ function makeSectionActive() {
 // Scroll to anchor ID using scrollTO event
 
 function scrollToSection() {
+	const links= document.querySelectorAll("a");
 	for (section of sections){
 		var position = section.getBoundingClientRect();
 		var sectionId = section.getAttribute('id')
@@ -102,10 +103,9 @@ function scrollToSection() {
 		for (link of links){
 			var linkId = link.getAttribute('id');
 			link.addEventListener("click", function(e){
-			console.log("clicked");
-			e.preventDefault();
-			if (sectionId == linkId){
-				window.scrollTo(position);
+				e.preventDefault();
+				if (sectionId == linkId){
+					window.scrollTo(position);
 		}
 	});
 	};
@@ -114,16 +114,18 @@ function scrollToSection() {
 
 
 	
-	function getPosition(){
-    for (section of sections){
-        var position = section.getBoundingClientRect();
-        var sectionId = section.getAttribute('id');
-        console.log("working");
 
-    }}
-
-
-
+function scrollToSection(){
+	const links= document.querySelectorAll("a");
+	for (link of links){
+	    var href = i.getAttribute('href');
+	    i.addEventListener("click", function(e){
+	        e.preventDefault();
+	        var section = document.getElementById(href);
+	        console.log(section);
+	    });
+	}
+}
 
 
 
@@ -137,6 +139,7 @@ function scrollToSection() {
 
 menu = navBuild()
 
+document.querySelector('.menu__link').style.display='inline-block';
 
 
 // Scroll to section on link click
