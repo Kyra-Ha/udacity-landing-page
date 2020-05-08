@@ -18,8 +18,8 @@
  * 
 */
 
+const navbar = document.getElementById('navbar__list');
 const sections = document.getElementsByTagName('section');
-const navbar = document.querySelector('#navbar__list');
 
 
 /**
@@ -103,14 +103,16 @@ function scrollToSection(event){
 
 // Build menu 
 
-navBuild()
+window.addEventListener('load', function() {
+	navBuild();
+});
 
 //Style menu
 
 const list = document.getElementsByTagName('li');
 for (i of list){
     i.style.cssText = "display:inline-block; float:right";
-}
+};
 
 
 
