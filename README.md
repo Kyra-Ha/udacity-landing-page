@@ -1,10 +1,15 @@
-## Landing Page Project
+# Landing Page Project
 
-# Overview
+## Overview
 
 Practice in developing an interactive landing screen through manipulating the DOM by:
 
 * Creating a dynamic navigation bar that automatically updates when new content is added
 * Adding an auto-scroll feature when clicking desired section of menu
+* When a section is in view, active state is toggled, showing background CSS animation
+
+## Note 
+
+I developed all of the JavaScript--the CSS was all made by Udacity.
 
 
