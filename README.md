@@ -6,7 +6,7 @@ Practice in developing an interactive landing screen through manipulating the DO
 
 * Creating a dynamic navigation bar that automatically updates when new content is added
 * Adding an auto-scroll feature when clicking desired section of menu
-* When section is in view, active state shows background CSS animation
+* When a section is in view, active state is toggled, showing background CSS animation
 
 ## Note 
 
