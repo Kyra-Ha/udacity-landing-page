@@ -31,7 +31,7 @@ function isInViewPort(elem) {
 // build the nav
 function navBuild() {
 	for (let i=0; i<sections.length; i++){
-		let navbar = document.getElementById("navbar__list")
+		let navbar = document.getElementById("navbar__list");
 		let nav_section = document.createElement('li');
 		let a = document.createElement('a');
 		a.setAttribute('href', "#"+ sections[i].id);
@@ -70,12 +70,6 @@ window.addEventListener('load', function() {
 	navBuild();
 });
 
-//Style menu
-
-const list = document.getElementsByTagName('li');
-for (i of list){
-    i.style.cssText = "display:inline-block; float:right";
-};
 
 // Set sections as active
 
