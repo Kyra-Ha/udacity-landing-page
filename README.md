@@ -8,6 +8,10 @@ Practice in developing an interactive landing screen through manipulating the DO
 * Adding an auto-scroll feature when clicking desired section of menu
 * When a section is in view, active state is toggled, showing background CSS animation
 
+## Demo of the Scroll
+
+![Landing Page Demo](demo/landingpage.gif)
+
 ## Note 
 
 I developed all of the JavaScript--the CSS was all made by Udacity.
